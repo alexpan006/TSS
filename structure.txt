@@ -1,6 +1,6 @@
 .
 ├── docker-compose.yml           # Orchestrates containers
-├── tss_cli/                    # New directory for CLI tool and configs
+├── tss-ecdsa-cli/                    # New directory for CLI tool and configs
 │   ├── tss-ecdsa-cli           # CLI binary from cryptochill repo
 │   ├── keysfile                # Generated during DKG, stores key shares
 │   └── params                  # Configuration file for DKG and signing

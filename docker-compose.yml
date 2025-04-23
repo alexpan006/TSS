@@ -1,0 +1,23 @@
+version: "3.8"
+services:
+  state_manager:
+    build:
+      context: .
+      dockerfile: tss-ecdsa-cli/Dockerfile  # Point to the provided Dockerfile
+    environment:
+          - ROCKET_ADDRESS=0.0.0.0
+          - ROCKET_PORT=8000
+          - ROCKET_WORKERS=4  # Optional: Customize as needed
+          - ROCKET_LOG=normal # Optional: Set log level
+    ports:
+          - "8000:8000"
+    command: ["./target/release/tss_cli", "manager"]    
+    
+  coordinator:
+    build:
+      context: .
+      dockerfile: coordinator/Dockerfile  # Separate build for coordinator logic
+    depends_on:
+      - state_manager
+    environment:
+      - STATE_MANAGER_URL=http://state_manager:8000
