@@ -1,0 +1,3 @@
+[submodule "tss-ecdsa-cli"]
+	path = tss-ecdsa-cli
+	url = https://github.com/cryptochill/tss-ecdsa-cli.git
